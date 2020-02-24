@@ -1,0 +1,235 @@
+    * {
+        box-sizing: border-box;
+    }
+    
+    html {
+        font-family: 'Roboto', sans-serif;
+    }
+    
+    body {
+        padding: 0;
+        margin: 0;
+        overflow-x: hidden;
+    }
+    
+    .header {
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        width: 100vw;
+        padding-left: 120px;
+        border-bottom: 1px solid #c0c0c0c0;
+        flex-direction: column;
+        margin-top: 20px;
+        .head {
+            display: flex;
+            width: 100%;
+            flex-direction: row;
+            padding-bottom: 10px;
+            &-create {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                height: 50px;
+                width: 130px;
+                border-radius: 30px;
+                background-color: white;
+                margin-right: 50px;
+                font-size: 18px;
+                &__icon {
+                    margin: 5px;
+                }
+            }
+            &-today {
+                border: 1px solid grey;
+                border-radius: 3px;
+                height: 40px;
+                width: 90px;
+                background-color: transparent;
+                outline: none;
+                margin-right: 50px;
+                font-weight: 700;
+            }
+            &-prev {
+                border: none;
+                width: 35px;
+                height: 35px;
+                border-radius: 50%;
+                background-position: center;
+                background-size: auto;
+            }
+            &-cur {
+                border: none;
+                width: 35px;
+                height: 35px;
+                border-radius: 50%;
+                background-position: center;
+                background-size: auto;
+            }
+            &__row {
+                position: relative;
+                flex-grow: 1;
+            }
+        }
+        .week {
+            display: flex;
+            width: 100vw;
+            padding: 0 55px 0 0px;
+            border-top: 1px solid #c0c0c0c0;
+            border-bottom: 1px solid #c0c0c0;
+            flex-wrap: nowrap;
+            margin-bottom: 0 !important;
+        }
+        .date {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            text-align: center;
+            position: relative;
+            flex-grow: 1;
+            height: 90px;
+            &-week {
+                font-size: 18px;
+                opacity: 0.5;
+            }
+            &-number {
+                width: 40px;
+                height: 40px;
+                align-self: center;
+                margin-top: 5px;
+                font-size: 20px;
+                text-align: center;
+                line-height: 40px;
+                border-radius: 50%;
+            }
+        }
+    }
+    
+    .main {
+        height: calc(100vh - 100px);
+        display: flex;
+        overflow: auto;
+        margin: 0;
+        padding: 0;
+        .multicolumns {
+            width: 100vw;
+            display: flex;
+            margin: 0;
+            padding: 0;
+            &-column {
+                margin: 0;
+                padding: 0;
+                display: flex;
+                flex-direction: column;
+                width: 100%;
+                border-right: none;
+                // background: repeating-linear-gradient(180deg, #dadce0, #dadce0 1px, #fff 1px, #fff 43px);
+                &-field {
+                    margin: 0;
+                    padding: 0;
+                    width: 100%;
+                    min-height: 45px;
+                    border-left: 1px solid #dadce0;
+                    border-bottom: 1px solid #c0c0c0;
+                }
+            }
+            &-column:first-child {
+                padding-left: 5px;
+            }
+        }
+        .columnHour {
+            display: flex;
+            flex-direction: column;
+            color: #70757a;
+            min-height: 45px;
+            width: 55px;
+            padding: 0;
+            margin: 0;
+            flex-flow: row-reverse;
+        }
+        .columnHour:first-child {
+            margin-top: 30px;
+        }
+    }
+    
+    .popup {
+        display: flex;
+        height: 800px;
+        z-index: 9999;
+        position: fixed;
+        left: 0;
+        right: 0;
+        top: 0;
+        bottom: 0;
+        display: -ms-flexbox;
+        display: -webkit-flex;
+        display: flex;
+        -webkit-flex-direction: row;
+        -ms-flex-direction: row;
+        flex-direction: row;
+        -webkit-flex-wrap: wrap;
+        -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+        -webkit-justify-content: center;
+        -ms-flex-pack: center;
+        justify-content: center;
+        -webkit-align-content: stretch;
+        -ms-flex-line-pack: stretch;
+        align-content: stretch;
+        -webkit-align-items: center;
+        -ms-flex-align: center;
+        align-items: center;
+        padding: 30px;
+        padding-bottom: 0;
+        &-form {
+            height: 350px;
+            width: 370px;
+            position: relative;
+            border: 1px solid #26a69a;
+            border-radius: 12px;
+            box-shadow: 1px 1px 10px #c0c0c0;
+            background: #fff;
+            -webkit-order: 0;
+            -ms-flex-order: 0;
+            order: 0;
+            -webkit-flex: 0 1 auto;
+            -ms-flex: 0 1 auto;
+            flex: 0 1 auto;
+            -webkit-align-self: auto;
+            -ms-flex-item-align: auto;
+            align-self: auto;
+            margin: auto;
+            overflow: hidden;
+            padding: 20px;
+            &__title {
+                margin-top: 20px !important;
+                width: 80%;
+            }
+            &__description {
+                width: 80%;
+            }
+            .main {
+                display: flex;
+                flex-direction: column;
+                &-dataStart {
+                    width: 50%;
+                }
+                &-dataEnd {
+                    width: 50%;
+                }
+            }
+        }
+        .close {
+            position: absolute;
+            right: 0px;
+            top: 0px;
+            font-size: 28px;
+        }
+        .submit {
+            background-color: #2979ff blue accent-3;
+            margin-top: 15px;
+            display: flex;
+            margin-left: auto;
+            height: 40px;
+        }
+    }
