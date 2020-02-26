@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="src/styles/index.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.css" integrity="sha256-13EKEXRsynh3cmmNF1dlW6uvoC1SZVaW94bIHZQJoMU=" crossorigin="anonymous" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Roboto:400,700,900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css" integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk=" crossorigin="anonymous" />
 </head>
@@ -19,8 +20,8 @@
         <div class="head">
             <button class="head-create" id="create"><i class="fas fa-plus header-create__icon"></i>Create</button>
             <button class="head-today">Today</button>
-            <button class="head-prev"><i class="fas fa-angle-left"></i></button>
-            <button class="head-cur"><i class="fas fa-angle-right"></i></button>
+            <span class="head-prev"><i class="fas fa-angle-left"></i></span>
+            <span class="head-next"><i class="fas fa-angle-right"></i></span>
             <div class="head__row">
                 Лютий 2020
             </div>
@@ -41,24 +42,26 @@
 
     <div class="popup hide" id="popup">
         <form class="popup-form">
-            <input class="popup-form__title" type="text" name="title" placeholder="Введіть назву події">
+            <input class="popup-form__title" type="text" name="title" id="title" placeholder="Введіть назву події">
+
             <div class="main">
-                <label for="dataStart">Виберіть тривалість події</label>
-                <input class="main-dataStart" type="datetime-local" name="dataStart">
+                <!-- <label for="dataStart">Виберіть тривалість події</label> -->
+                <i class="Small material-icons main-icon">access_time</i>
+                <input class="main-dataStart" type="datetime-local" name="dataStart" id="dataStart" value="2020-12-19T16:39">
 
-                <label for="dataEnd">Виберіть кінець події</label>
-
-                <input class="main-dataEnd" type="datetime-local" name="dataEnd">
-
+                <input class="main-dataEnd" type="datetime-local" name="dataEnd" id="dataEnd" value="2020-12-20T16:39">
             </div>
-            <input class="popup-form__description" type="text" name="subtitle" placeholder="Добавити опис">
-
-            <button class="submit btn waves-effect waves-light" type="submit" name="submit">Відправити</button>
+            <div class="subject">
+                <i class="Small material-icons main-icon">subject</i>
+                <input class="popup-form__description" type="text" name="description" id="description" placeholder="Добавити опис">
+            </div>
+            <button class="submit btn waves-effect waves-light" type="submit" name="submit" id="submit">Відправити</button>
             <button class="close btn-floating btn-large waves-effect waves-light red" data-modal="popup">X</button>
         </form>
     </div>
-    <script src="src/scripts/index.js"></script>
-    <script src="src/scripts/index2.js"></script>
+    <script src="src/scripts/index.js" type="module"></script>
+    <script src="/src/scripts/storage.js" type="module"></script>
+    <script src="/src/scripts/renderMain.js" type="module"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 </body>
 
