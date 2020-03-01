@@ -51,7 +51,6 @@ const getMonday = () => {
 }
 getMonday();
 
-//current month
 
 const monthElem = document.querySelector('.head__row');
 const months = ['Січень', 'Лютий', 'Березень', 'Квітень', 'Травень', 'Червень', 'Липень', 'Серпень', 'Вересень', 'Жовтень', 'Листопад', 'Грудень'];
@@ -84,7 +83,6 @@ const setCurrent = () => {
 
 setCurrent();
 
-// days
 
 const getDays = () => {
     let result = [];
@@ -112,16 +110,14 @@ const renderCalendarDays = () => {
 
 renderCalendarDays();
 
-//main поміняв
 
 const mainPartOfCalendar = document.querySelector('.multicolumns');
 
 let time = 0;
 const createTime = () => {
-        time++;
-        return time;
-    }
-    //поміняв
+    time++;
+    return time;
+}
 const getWeekDay = () => {
     let result = [];
     let day = document.querySelector('.date-number').innerHTML;
@@ -195,7 +191,6 @@ const getWeekDay = () => {
     return result.join('');
 }
 
-//поміняв
 const getLineHour = () => {
     let i = 0;
     const blocksString = getWeekDay(i);
@@ -211,7 +206,6 @@ const getLineHour = () => {
 }
 
 
-//поміняв
 const renderMainPart = () => {
     mainPartOfCalendar.innerHTML = getLineHour();
 };
@@ -242,7 +236,7 @@ const redline = () => {
 }
 redline()
 
-// моє
+
 const renderHourColumns = () => {
         const columnHourElem = document.querySelector('.column');
 
@@ -261,7 +255,7 @@ const renderHourColumns = () => {
  renderHourColumns()
 
 
- // поміняти
+
  const markCurrentDay = () => {
      const weekDaysElems = document.querySelectorAll('.date-number');
      let currentNumberDay;
@@ -276,7 +270,7 @@ const renderHourColumns = () => {
 
 
 
- //arrows
+ 
 
  const nextArrowElem = document.querySelector('.head-next');
  const prevArrowElem = document.querySelector('.head-prev');
@@ -288,7 +282,7 @@ const renderHourColumns = () => {
      setCurrent();
      renderMainPart();
      renderHourColumns()
-     markCurrentDay(); //міняти
+     markCurrentDay(); 
      renderEvents();
      redline()
      renderEvents()
@@ -312,7 +306,6 @@ const renderHourColumns = () => {
  prevArrowElem.addEventListener('click', getPrevWeek);
 
 
- //today button
 
  const addButtonElem = document.querySelector('.head-today');
 
@@ -470,19 +463,41 @@ document.querySelector('.multicolumns').addEventListener('click', touchEvent)
 
 
 
- const deleteEvents = event => {
+ const popUpDelete = event => {
     const eventId = event.target.dataset.idNumber;
     if (eventId) {
-        for (let i = 0; i < newEvent.length; i++) {
-            if (eventId == newEvent[i].id) {
-                let a = newEvent.splice(i, 1)
-                i--;
-                getCurrentDay()
+            document.querySelector('.popup-delete').classList.remove('hide');
+      
+            document.onkeydown = function(event) {
+                if (event.keyCode == 27) {
+                    close()
+                };
             }
-        };
+        
+            function close() {
+                document.querySelector('.popup-delete').classList.add('hide');
+                document.onkeydown = null;
+            }
+            const deleteEvent = document.querySelector('.delete-btn')
+            const deleteEvents = () => {
+                for (let i = 0; i < newEvent.length; i++) {
+                    if (eventId == newEvent[i].id) {
+                        let a = newEvent.splice(i, 1)
+                        i--;
+                        getCurrentDay()
+                        document.querySelector('.popup-delete').classList.add('hide');
+
+                    }
+                };
+            }
+
+            deleteEvent.addEventListener('click', deleteEvents)
+        
+        }
+       
     }
 
-}
 
-document.querySelector('.multicolumns').addEventListener('click', deleteEvents)
+
+document.querySelector('.multicolumns').addEventListener('click', popUpDelete)
 renderEvents()
