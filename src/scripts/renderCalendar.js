@@ -357,7 +357,6 @@ const renderHourColumns = () => {
  
  const saveFormFromPopUp = document.querySelector('.submit')
  
- const form = document.querySelector('.form')
  const createObjFromForm = () => {
      event.preventDefault();
     //  const formData = [...new FormData(form)]
@@ -473,8 +472,10 @@ document.querySelector('.multicolumns').addEventListener('click', touchEvent)
                     close()
                 };
             }
-        
+            const btnCloseDelete = document.querySelector('.close-delete')
+
             function close() {
+               
                 document.querySelector('.popup-delete').classList.add('hide');
                 document.onkeydown = null;
             }
@@ -492,7 +493,7 @@ document.querySelector('.multicolumns').addEventListener('click', touchEvent)
             }
 
             deleteEvent.addEventListener('click', deleteEvents)
-        
+            btnCloseDelete.addEventListener('click', close);
         }
        
     }

@@ -194,13 +194,23 @@ body {
   height: 60px;
   width: 100%;
   border-top: 1px solid grey;
-  border-left: 1px solid black;
+  border-left: 1px solid grey;
 }
 
 .main .multicolumns__line {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+}
+
+.main .multicolumns__field:hover {
+  background-color: #80d8ff;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+  -webkit-animation: show 0.1s 1;
+          animation: show 0.1s 1;
+  -webkit-animation-fill-mode: forwards;
+          animation-fill-mode: forwards;
 }
 
 .main .columnHour {
@@ -394,11 +404,13 @@ body {
   margin-top: 20px !important;
 }
 
-.popup-delete .close {
+.popup-delete .close-delete {
+  max-width: 25px;
+  max-height: 25px;
   position: absolute;
   right: 0px;
   top: 0px;
-  font-size: 28px;
+  font-size: 14px;
 }
 
 .popup-delete .delete-btn {
