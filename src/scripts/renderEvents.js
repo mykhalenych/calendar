@@ -1,20 +1,26 @@
-const renderEvents = () => {
+import { newEvent, check } from './storage.js'
+
+export const renderEvents = () => {
 
     let arrElemForTime = [];
     let arrElemRender = [];
     newEvent.map(eventFromForm => {
-
         let TimeNow = new Date(`${eventFromForm.startDateEvent}`);
         let TimeEnd = new Date(`${eventFromForm.inputEndDate}`);
         let ChildSelector = `${TimeNow.getFullYear()+'-'}${TimeNow.getMonth()+1+'-'}${check(TimeNow.getDate())}`;
+
         let getHours = TimeNow.getHours();
 
         if (getHours < 10) {
             getHours = `0${TimeNow.getHours()}`;
         };
+
+
         let parentSelector = document.querySelector(`[id='${getHours}']`);
         if (parentSelector === null) return;
+
         let sectionElem = parentSelector.querySelector(`[id='${ChildSelector}']`);
+        console.log(sectionElem)
         if (sectionElem === null) {
             return;
         };
