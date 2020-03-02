@@ -1,10 +1,11 @@
-import { newEvent } from './storage.js'
+import { getItem, setItem } from './storage.js'
 import { renderEvents } from './renderEvents.js'
 
 const saveFormFromPopUp = document.querySelector('.submit')
 
 const createObjFromForm = () => {
     event.preventDefault();
+
     //  const formData = [...new FormData(form)]
     //      .reduce((acc, [field, value]) => ({...acc, [field]: value }), {})
     //  alert(JSON.stringify(formData));
@@ -12,21 +13,23 @@ const createObjFromForm = () => {
     let inputStartDate = document.querySelector('#dataStart');
     let inputEndDate = document.querySelector('#dataEnd');
     let inputDescription = document.querySelector('#description');
+    let inputColor = document.querySelector('#color');
 
+    const events = getItem('eventsList') || [];
 
-
-    console.log(newEvent)
-    newEvent.push({
+    events.push({
         id: Math.round(Math.random() * 100),
         name: inputTitle.value,
         startDateEvent: inputStartDate.value,
         inputEndDate: inputEndDate.value,
         inputDescription: inputDescription.value,
+        inputColor: inputColor.value,
     });
-    console.log(newEvent)
     document.querySelector('.popup').classList.add('hide');
-
+    setItem('eventsList', events);
+    console.log(events)
     renderEvents();
+
 
 }
 

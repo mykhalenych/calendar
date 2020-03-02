@@ -1,8 +1,11 @@
 const createEvent = document.querySelector('#create');
 
 
-export const popUp = () => {
-
+export const popUp = (event) => {
+    const eventId = event.target.dataset.idNumber;
+    if (eventId) {
+        return
+    }
     document.querySelector('.popup').classList.remove('hide');
 
     document.onkeydown = function(event) {

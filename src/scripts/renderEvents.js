@@ -1,14 +1,16 @@
-import { newEvent, check } from './storage.js'
+import { getItem, setItem, check } from './storage.js'
+
 
 export const renderEvents = () => {
+    const events = getItem('eventsList') || [];
 
     let arrElemForTime = [];
     let arrElemRender = [];
-    newEvent.map(eventFromForm => {
+    events.map(eventFromForm => {
         let TimeNow = new Date(`${eventFromForm.startDateEvent}`);
         let TimeEnd = new Date(`${eventFromForm.inputEndDate}`);
         let ChildSelector = `${TimeNow.getFullYear()+'-'}${TimeNow.getMonth()+1+'-'}${check(TimeNow.getDate())}`;
-
+        let bgColor = eventFromForm.inputColor;
         let getHours = TimeNow.getHours();
 
         if (getHours < 10) {
@@ -20,7 +22,6 @@ export const renderEvents = () => {
         if (parentSelector === null) return;
 
         let sectionElem = parentSelector.querySelector(`[id='${ChildSelector}']`);
-        console.log(sectionElem)
         if (sectionElem === null) {
             return;
         };
@@ -38,7 +39,7 @@ export const renderEvents = () => {
                            data-time-ivent='${hours}'
                            data-id-parent='${ChildSelector}'
                            style="
-                           height:${height}px; top:${(hours * 60)+163}px;">
+                           height:${height}px; top:${(hours * 60)+163}px; background-color: ${bgColor};">
                                <div class="event__name" data-id-number='${eventFromForm.id}'>
                                    ${eventFromForm.name}
                                </div>

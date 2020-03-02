@@ -1,4 +1,4 @@
-import { newEvent, generateNumbersRange, check } from './storage.js'
+import { generateNumbersRange, check } from './storage.js'
 import { renderEvents } from './renderEvents.js'
 import { popUpDelete } from './deleteEvents.js'
 
@@ -232,10 +232,8 @@ const renderHourColumns = () => {
      setCurrent();
      renderMainPart();
      renderEvents();
-
      renderHourColumns()
      markCurrentDay(); 
-     redline()
 
  }
 
@@ -248,7 +246,6 @@ const renderHourColumns = () => {
      renderHourColumns()
      markCurrentDay();
      renderEvents();
-     redline()
      renderEvents()
  }
 
