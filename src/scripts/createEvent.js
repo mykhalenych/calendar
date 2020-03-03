@@ -1,10 +1,14 @@
 import { getItem, setItem } from './storage.js'
 import { renderEvents } from './renderEvents.js'
-
+import { updateEvent } from './touchEvent.js'
 const saveFormFromPopUp = document.querySelector('.submit')
-
-const createObjFromForm = () => {
+const btnUpdateEvent = document.querySelector('.submit');
+export const createObjFromForm = () => {
     event.preventDefault();
+    if (btnUpdateEvent.classList.contains("update")) {
+        updateEvent(event);
+        return;
+    };
 
     //  const formData = [...new FormData(form)]
     //      .reduce((acc, [field, value]) => ({...acc, [field]: value }), {})

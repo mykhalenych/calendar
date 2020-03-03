@@ -84,6 +84,7 @@ const createTime = () => {
 }
 const getWeekDay = () => {
     let dayToMain = document.querySelector('.date-number').innerHTML;
+    let day = document.querySelector('.date__number');
 
     let result = [];
 
@@ -99,7 +100,8 @@ const getWeekDay = () => {
                     <div 
                         id="${new Date(timeToday).getFullYear()+'-'}${new Date(timeToday).getMonth() + 1+'-'}${check(dayToMain++)}"
                         class="multicolumns__field" 
-                       
+                        date-id-number="${new Date(timeToday).getFullYear()+'-'}${new Date(timeToday).getMonth() + 1+'-'}${check(dayToMain)}"
+                        "           
                     ></div>`
                 );
             });

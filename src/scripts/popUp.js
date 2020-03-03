@@ -1,11 +1,11 @@
-const createEvent = document.querySelector('#create');
+import { getItem, setItem } from './storage.js'
+import { renderEvents } from './renderEvents.js'
 
+const createEvent = document.querySelector('#create');
+const popup = document.querySelector('.popup')
 
 export const popUp = (event) => {
-    const eventId = event.target.dataset.idNumber;
-    if (eventId) {
-        return
-    }
+
     document.querySelector('.popup').classList.remove('hide');
 
     document.onkeydown = function(event) {
@@ -18,6 +18,8 @@ export const popUp = (event) => {
         document.querySelector('.popup').classList.add('hide');
         document.onkeydown = null;
     }
+
+
 
 }
 createEvent.addEventListener('click', popUp);
