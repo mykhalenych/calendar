@@ -340,6 +340,21 @@ body {
   height: 40px;
 }
 
+.popup .btn-block {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.popup .delete-btn {
+  margin-top: 15px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin-right: auto;
+  height: 40px;
+}
+
 .popup .subject {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -411,16 +426,6 @@ body {
   right: 0px;
   top: 0px;
   font-size: 14px;
-}
-
-.popup-delete .delete-btn {
-  background-color: #2979ff;
-  margin-top: 15px;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  margin-left: auto;
-  height: 40px;
 }
 
 .redline {

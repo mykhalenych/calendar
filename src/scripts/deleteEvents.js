@@ -69,10 +69,10 @@
      popUp()
 
      function isDelete() {
-         //  event.preventDefault();
+         event.preventDefault();
 
          for (let i = 0; i < events.length; i++) {
-             if (eventId === events[i].id) {
+             if (eventId == events[i].id) {
                  events.splice(i, 1);
                  i--
                  document.querySelector('.popup').classList.add('hide');
