@@ -8,19 +8,19 @@ const nameDays = ['НД', 'ПН', 'ВТ', 'СР', 'ЧТ', 'ПТ', 'СБ'];
 let setDayInWeek = 0;
 export let timeToday = new Date();
 
-const getMonday = () => {
-    while (timeToday.getDay() !== 1) {
-        timeToday.setDate(timeToday.getDate() - 1);
-    };
-}
-getMonday();
+export const getMonday = () => {
+        while (timeToday.getDay() !== 1) {
+            timeToday.setDate(timeToday.getDate() - 1);
+        };
+    }
+    //getMonday();
 
 
 const monthElem = document.querySelector('.head__row');
 const months = ['Січень', 'Лютий', 'Березень', 'Квітень', 'Травень', 'Червень', 'Липень', 'Серпень', 'Вересень', 'Жовтень', 'Листопад', 'Грудень'];
 
 
-const setCurrent = () => {
+export const setCurrent = () => {
     const allDaysFromWeek = document.querySelectorAll('.date-number');
 
     const dayFromallDaysFromWeek = [...allDaysFromWeek].splice(1);
@@ -45,7 +45,7 @@ const setCurrent = () => {
     let monthForPopup = new Date(timeToday).getMonth() + 1;
 }
 
-setCurrent();
+//setCurrent();
 
 
 const getDays = () => {
@@ -68,11 +68,11 @@ const getDays = () => {
     return result.join('');
 }
 
-const renderCalendarDays = () => {
+export const renderCalendarDays = () => {
     daysElem.innerHTML = getDays();
 }
 
-renderCalendarDays();
+//renderCalendarDays();
 
 
 const mainPartOfCalendar = document.querySelector('.multicolumns');
@@ -82,7 +82,7 @@ const createTime = () => {
     time++;
     return time;
 }
-const getWeekDay = () => {
+export const getWeekDay = () => {
     let dayToMain = document.querySelector('.date-number').innerHTML;
     let day = document.querySelector('.date__number');
 
@@ -148,7 +148,7 @@ const getWeekDay = () => {
 
 };
 
-const getLineHour = () => {
+export const getLineHour = () => {
     let i = 0;
     const blocksString = getWeekDay(i);
 
@@ -163,15 +163,15 @@ const getLineHour = () => {
 }
 
 
-const renderMainPart = () => {
+export const renderMainPart = () => {
     mainPartOfCalendar.innerHTML = getLineHour();
 }
 
-renderMainPart()
-getWeekDay()
+// renderMainPart()
+// getWeekDay()
 
 
-const renderHourColumns = () => {
+export const renderHourColumns = () => {
         const columnHourElem = document.querySelector('.column');
 
 
@@ -186,20 +186,20 @@ const renderHourColumns = () => {
 
      columnHourElem.innerHTML = sectorsString;
  }
- renderHourColumns()
+//  renderHourColumns()
 
  let todayIndex;
- const getTodayIndex = () => {
+ export const getTodayIndex = () => {
  
      const dayOfweek = new Date().getDay() - 1;
  
      dayOfweek < 0 ? todayIndex = 6 : todayIndex = dayOfweek;
  }
  
- getTodayIndex();
+ //getTodayIndex();
  
  
-  const redline = () => {
+ export const redline = () => {
      const todayHour = new Date().getHours();
      const todayMinutes = new Date().getMinutes();
      let time = 60 * todayHour + todayMinutes
@@ -210,9 +210,9 @@ const renderHourColumns = () => {
      redline.style.left = `${widthElem * todayIndex + 60}px`;
      redline.style.width = `${widthElem}`
  }
- redline()
+//  redline()
 
- const markCurrentDay = () => {
+ export const markCurrentDay = () => {
      const weekDaysElems = document.querySelectorAll('.date-number');
      let currentNumberDay;
      new Date().getDay() - 1 < 0 ? currentNumberDay = 6 : currentNumberDay = new Date().getDay() - 1;
@@ -222,12 +222,12 @@ const renderHourColumns = () => {
      };
  }
 
- markCurrentDay();
+ //markCurrentDay();
 
  const nextArrowElem = document.querySelector('.head-next');
  const prevArrowElem = document.querySelector('.head-prev');
 
- const getNextWeek = () => {
+ export const getNextWeek = () => {
      timeToday.setDate(timeToday.getDate() + 7);
      setDayInWeek += 7;
      renderCalendarDays();
@@ -239,7 +239,7 @@ const renderHourColumns = () => {
 
  }
 
- const getPrevWeek = () => {
+ export const getPrevWeek = () => {
      timeToday.setDate(timeToday.getDate() - 7);
      setDayInWeek -= 7;
      renderCalendarDays();
@@ -258,7 +258,7 @@ const renderHourColumns = () => {
 
  const addButtonElem = document.querySelector('.head-today');
 
-  const getCurrentDay = () => {
+  export const getCurrentDay = () => {
      timeToday = new Date();
      getMonday();
      setDayInWeek = 0;
@@ -275,5 +275,5 @@ const renderHourColumns = () => {
 
 
 //поміняти
- document.querySelector('.multicolumns').addEventListener('click', popUpDelete)
- renderEvents()
+//  document.querySelector('.multicolumns').addEventListener('click', popUpDelete)
+//  renderEvents()

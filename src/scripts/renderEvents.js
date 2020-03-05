@@ -67,7 +67,3 @@ export const renderEvents = () => {
 }
 
 renderEvents()
-const onDocumentLoaded = () => {
-    getItem('eventsList') || []
-}
-document.addEventListener('DOMContentLoaded', onDocumentLoaded)
