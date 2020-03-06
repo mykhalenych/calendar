@@ -10,13 +10,7 @@ export const touchEvent = event => {
     }
 }
 
-
-
-
-
 document.querySelector('.multicolumns').addEventListener('click', touchEvent, true)
-
-
 
 export const updateEvent = (event) => {
     event.preventDefault();
@@ -31,11 +25,11 @@ export const updateEvent = (event) => {
 
     const events = getItem('eventsList') || [];
 
-    elem.name = inputTitle.value,
-        elem.startDateEvent = inputStartDate.value,
-        elem.inputEndDate = inputEndDate.value,
-        elem.description = inputDescription.value;
-    elem.color = inputColor.nodeValue;
+    // elem.name = inputTitle.value,
+    //     elem.startDateEvent = inputStartDate.value,
+    //     elem.inputEndDate = inputEndDate.value,
+    //     elem.description = inputDescription.value;
+    // elem.color = inputColor.nodeValue;
 
     setItem('eventsList', events);
     renderEvents();

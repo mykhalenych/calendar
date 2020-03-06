@@ -1,6 +1,5 @@
 import { generateNumbersRange, check } from './storage.js'
 import { renderEvents } from './renderEvents.js'
-import { popUpDelete } from './deleteEvents.js'
 
 const daysElem = document.querySelector('.week');
 const nameDays = ['НД', 'ПН', 'ВТ', 'СР', 'ЧТ', 'ПТ', 'СБ'];
@@ -197,7 +196,15 @@ export const renderHourColumns = () => {
  }
  
  //getTodayIndex();
- 
+ export const checkRedline = () => {
+    const currentDay = document.querySelector('.active');
+    const redline = document.querySelector('.redline ');
+    if (currentDay) {
+        redline.style.display = 'flex';
+    } else {
+        redline.style.display = 'none';
+    };
+}
  
  export const redline = () => {
      const todayHour = new Date().getHours();
@@ -222,6 +229,9 @@ export const renderHourColumns = () => {
      };
  }
 
+
+
+
  //markCurrentDay();
 
  const nextArrowElem = document.querySelector('.head-next');
@@ -236,6 +246,7 @@ export const renderHourColumns = () => {
      renderEvents();
      renderHourColumns()
      markCurrentDay(); 
+     checkRedline()
 
  }
 
@@ -249,6 +260,7 @@ export const renderHourColumns = () => {
      markCurrentDay();
      renderEvents();
      renderEvents()
+     checkRedline()
  }
 
  nextArrowElem.addEventListener('click', getNextWeek);
@@ -268,6 +280,7 @@ export const renderHourColumns = () => {
      setCurrent();
      markCurrentDay();
      redline();
+     checkRedline()
 
  }
 
