@@ -3,6 +3,17 @@ import { renderEvents } from './renderEvents.js'
 import { updateEvent } from './touchEvent.js'
 const saveFormFromPopUp = document.querySelector('.submit')
 const btnUpdateEvent = document.querySelector('.submit');
+
+const form = document.querySelector('.popup-form')
+
+const onFormChange = () => {
+
+    if (form.reportValidity()) {
+        submit.disabled = false;
+    }
+}
+form.addEventListener("input", onFormChange);
+
 export const createObjFromForm = () => {
     event.preventDefault();
     if (btnUpdateEvent.classList.contains("update")) {

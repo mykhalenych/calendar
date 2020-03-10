@@ -25,3 +25,12 @@ const onDocumentLoaded = () => {
     getItem('eventsList') || []
 }
 document.addEventListener('DOMContentLoaded', onDocumentLoaded)
+
+
+const onStorageChange = e => {
+    if (e.key === 'eventsList') {
+        renderEvents();
+    }
+};
+
+window.addEventListener('storage', onStorageChange);
